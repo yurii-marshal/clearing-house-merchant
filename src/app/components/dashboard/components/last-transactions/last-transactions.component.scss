@@ -1,0 +1,47 @@
+@import '../../../../../styles/site-mixin';
+
+.card-header{
+  background-color: $bg-header-panel;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.7px;
+  color: $color-header-panel;
+}
+.card-body{
+  padding:0 1.25rem 1.25rem 1.25rem;
+
+  th, td{
+    font-size: 14px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #4e4e4e;
+  }
+  th{
+    font-weight: bold;
+  }
+  td{
+    font-weight: normal;
+  }
+}
+
+// landscape
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+
+}
+
+// iPad Portrait
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+@media screen and (max-width: 767px) {
+  .card-header {
+    padding: 16px;
+    font-size: 18px;
+  }
+}

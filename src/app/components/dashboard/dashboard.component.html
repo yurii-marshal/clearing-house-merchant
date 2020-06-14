@@ -1,0 +1,43 @@
+<!--[@routerTransition]-->
+<div class="dashboard">
+    <div class="row">
+        <div class="col col-xs-12">
+            <div class="title">
+                <span>{{'My dashboard' | translate}}</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="dashboardInfo">
+        <div class="row">
+            <div class="col col-lg-3 col-xs-6 text-center">
+                <app-card-amounts cardAmountImg="{{generalBalanseImg}}"
+                                  cardAmountTitle="{{generalBalanceTitle}}"
+                                  [cardAmount]="dashboardInfo.balance">
+                </app-card-amounts>
+            </div>
+            <div class="col col-lg-3 col-xs-6 text-center">
+                <app-card-amounts cardAmountImg="{{weeklyAmountImg}}"
+                                  cardAmountTitle="{{weeklyAmountTitle}}"
+                                  [cardAmount]="dashboardInfo.lastTenDaysAmount"
+                                  cardAmountFooterTitle="{{commissionTitle}}"
+                                  [cardAmountFooter]="dashboardInfo.lastTenDaysComission">
+                </app-card-amounts>
+            </div>
+            <div class="col col-lg-6 col-xs-12 text-center">
+                <app-chart-transactions *ngIf="chartData.length"
+                                        [lineChartLabels]="chartLabels"
+                                        [lineChartData]="chartData">
+                </app-chart-transactions>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-lg-12 dashboard-transactions-section">
+            <button class="btn-print btn-icon-refresh" (click)="getTransactionsList()">
+                <img class="icon-refresh" src="./assets/images/transactions/Refresh_icon.svg" alt="">
+            </button>
+            <app-last-transactions [dataTable]="transactionsList"></app-last-transactions>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <div>
+            <img src="{{cardAmountImg}}" alt="">
+        </div>
+        <div>
+            <span class="title-header">{{cardAmountTitle}}</span>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="card-inner">
+            <p title="{{cardAmount | currency:'ILS':'symbol':'1.2-2'}}">
+                {{cardAmount | currency:'ILS':'symbol':'1.2-2'}}
+            </p>
+        </div>
+        <div class="card-inner-footer">
+            <span>{{cardAmountFooterTitle}}</span>
+            <span title="{{cardAmountFooter | currency:'ILS':'symbol':'1.2-2'}}">
+                {{cardAmountFooter | currency:'ILS':'symbol':'1.2-2'}}
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,242 @@
+<!--[@routerTransition]-->
+<div class="profile-details">
+    <div class="row">
+        <div class="col col-xs-12">
+            <div class="title">
+                <span>{{'Profile Details' | translate}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="general-details-card card mb-3">
+                <div class="card-header">
+                    <div class="card-header-inner">
+                        <span>{{'General Details' | translate}}</span>
+                    </div>
+                </div>
+                <div class="card-body mb-md-5">
+                    <form role="form" autocomplete="off" *ngIf="profileDetails" class="general-form">
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Business ID' | translate}}</label>
+                                    <input class="form-control input-mandatory" autocomplete="redundant" disabled
+                                           placeholder="{{'Business ID' | translate}}" name="merchantReference"
+                                           [(ngModel)]="profileDetails.businessDetails.businessId">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Business Name' | translate}}</label>
+                                    <input class="form-control input-mandatory" autocomplete="redundant" disabled
+                                           [(ngModel)]="profileDetails.merchantName" name="merchantName"
+                                           placeholder="{{'Business Name' | translate}}">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Card Owner Full Name' | translate}}</label>
+                                    <input class="form-control input-mandatory"
+                                           [(ngModel)]="profileDetails.personalDetails.firstName" name="firstName"
+                                           disabled autocomplete="redundant" placeholder="{{'First Name' | translate}}">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12 d-flex align-items-end">
+                                <div class="form-group w-100">
+                                    <input class="form-control input-mandatory" disabled
+                                           [(ngModel)]="profileDetails.personalDetails.lastName" name="lastName"
+                                           autocomplete="redundant" placeholder="{{'Last Name' | translate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'National ID Number' | translate}}</label>
+                                    <input class="form-control input-mandatory" disabled
+                                           [(ngModel)]="profileDetails.personalDetails.nationalIdNumber" name="nationalIdNumber"
+                                           autocomplete="redundant" placeholder="{{'National ID Number' | translate}}">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Card Owner Name' | translate}}</label>
+                                    <input class="form-control input-mandatory" disabled
+                                           [(ngModel)]="profileDetails.creditCardAccount.cardOwnerName" name="cardOwnerName"
+                                           autocomplete="redundant" placeholder="{{'Card Owner Name' | translate}}">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>{{'National ID Issue Date' | translate}}</label>
+                                            <input class="form-control"
+                                                   [ngModel]="profileDetails.personalDetails.nationalIdNumberDate | date: 'dd/MM/yyyy'"
+                                                   name="nationalIdNumberDate"
+                                                   disabled autocomplete="redundant" placeholder="{{'dd/mm/yyyy' | translate}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>{{'Owner Birthdate' | translate}}</label>
+                                            <input class="form-control"
+                                                   [ngModel]="profileDetails.personalDetails.birthDate | date: 'dd/MM/yyyy'"
+                                                   name="birthDate"
+                                                   disabled autocomplete="redundant" placeholder="{{'dd/mm/yyyy' | translate}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>{{'Owner Gender' | translate}}</label>
+                                        <ng-select [items]="genderTypeList" disabled="true"
+                                                   [(ngModel)]="profileDetails.personalDetails.gender"
+                                                   bindLabel="description"
+                                                   bindValue="code"
+                                                   placeholder="{{'- Gender Type -' | translate}}"
+                                                   name="ownerGender">
+                                        </ng-select>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Business Sector' | translate}}</label>
+                                    <input class="form-control input-mandatory"
+                                           [(ngModel)]="profileDetails.businessDetails.businessArea" name="businessArea"
+                                           disabled autocomplete="redundant" placeholder="{{'Business Sector' | translate}}">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Activity Start Date' | translate}}</label>
+                                    <input class="form-control"
+                                           [ngModel]="profileDetails.activityStartDate | date: 'dd/MM/yyyy'" name="activityStartDate"
+                                           disabled autocomplete="redundant" placeholder="{{'dd/mm/yyyy' | translate}}">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <!--<div class="row">-->
+                            <!--<div class=" col-md-6 col-12">-->
+                                <!--<fieldset class="form-group">-->
+                                    <!--<label>{{'Username' | translate}}</label>-->
+                                    <!--<input class="form-control"-->
+                                           <!--[(ngModel)]="profileDetails.personalDetails.username" name="username"-->
+                                           <!--disabled autocomplete="redundant" placeholder="{{'Username' | translate}}">-->
+                                <!--</fieldset>-->
+                            <!--</div>-->
+                            <!--<div class="col-md-6 col-12">-->
+                                <!--<div class="row d-flex align-items-center justify-content-between">-->
+                                    <!--<div class="col-md-6 col-xl-6">-->
+                                        <!--<fieldset class="form-group">-->
+                                            <!--<label>{{'Password' | translate}}</label>-->
+                                            <!--<input class="form-control"-->
+                                                   <!--[(ngModel)]="profileDetails.personalDetails.password" name="password"-->
+                                                   <!--disabled autocomplete="redundant" placeholder="" type="password">-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-6 col-xl-5 btn-reset">-->
+                                        <!--<button class="btn btn-main">Reset Password</button>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'E-Mail' | translate}}</label>
+                                    <input class="form-control input-mandatory"
+                                           [(ngModel)]="profileDetails.personalDetails.email" name="email"
+                                           disabled autocomplete="redundant" placeholder="email@gmail.com">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Business Phone Number' | translate}}</label>
+                                    <input class="form-control phone-number-form"
+                                           [(ngModel)]="profileDetails.businessDetails.businessPhone" name="businessPhone"
+                                           disabled autocomplete="redundant" placeholder="+972">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Owner Cell Phone Number' | translate}}</label>
+                                    <input class="form-control phone-number-form"
+                                           [(ngModel)]="profileDetails.personalDetails.cellPhone" name="cellPhone"
+                                           disabled autocomplete="redundant" placeholder="+972">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12 d-flex align-items-center">
+                                <!--<div class="btn-validate">-->
+                                    <!--<button class="btn btn-main">Validate</button>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>{{'Business Type' | translate}}</label>
+                                    <ng-select [items]="businessTypeList" disabled="true"
+                                               [(ngModel)]="profileDetails.businessDetails.businessType"
+                                               bindLabel="description"
+                                               bindValue="code"
+                                               placeholder="{{'- A Public Company -' | translate}}"
+                                               name="businessType">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Web site' | translate}}</label>
+                                    <input class="form-control"
+                                           [(ngModel)]="profileDetails.businessDetails.webSite" name="webSite"
+                                           disabled autocomplete="redundant" placeholder="www.ellacosmetics.com">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Address' | translate}}</label>
+                                    <input class="form-control"
+                                           [(ngModel)]="profileDetails.address.street" name="street"
+                                           disabled autocomplete="redundant" placeholder="{{'Street' | translate}}">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'City' | translate}}</label>
+                                    <input class="form-control"
+                                           [(ngModel)]="profileDetails.address.city" name="city"
+                                           disabled autocomplete="redundant" placeholder="{{'City' | translate}}">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Zip Code' | translate}}</label>
+                                    <input class="form-control"
+                                           [(ngModel)]="profileDetails.address.zip" name="zip"
+                                           disabled autocomplete="redundant" placeholder="{{'Zip Code' | translate}}">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

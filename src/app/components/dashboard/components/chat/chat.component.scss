@@ -1,0 +1,48 @@
+.chat-panel {
+  .chat-dropdown {
+    margin-top: -3px;
+  }
+  .chat {
+    .left {
+      img {
+        margin-right: 15px;
+      }
+    }
+    .right {
+      img {
+        margin-left: 15px;
+      }
+    }
+    height: 350px;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin-bottom: 10px;
+      margin-right: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px dotted #999;
+    }
+  }
+  .card-footer {
+    input {
+      padding: 3px;
+    }
+  }
+}
+
+// landscape
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+
+}
+
+// iPad Portrait
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+// mobile screens
+@media screen and (min-width: 375px) and (max-width: 767px) {
+
+}

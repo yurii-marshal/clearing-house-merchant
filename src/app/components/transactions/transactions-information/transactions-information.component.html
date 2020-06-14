@@ -1,0 +1,277 @@
+<!--[@routerTransition]-->
+<div class="page-transaction-information">
+    <div class="row">
+        <div class="col col-xs-12">
+            <div class="title">
+                <span class="link" routerLink="/transactions">
+                    {{'Transactions' | translate}} >
+                </span><span class="idItem"> {{'ID' | translate}}:{{params.id}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="card-header-inner">
+                        <span>{{'Full Transaction Information' | translate}}</span>
+                        <button class="btn-icon-refresh" (click)="getData()">
+                            <img class="icon-refresh" src="./assets/images/transactions/Refresh_icon.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body mb-sm-3">
+                    <div class="card-body-title d-flex justify-content-between align-items-center">
+                        <div class="d-flex">
+                            <img src="./assets/images/transactions-details/credit-card.svg" class="credit-card" alt="">
+                            <div>
+                                <div>
+                                    <span class="text-uppercase">
+                                        {{'Transaction ID' | translate}}: {{transaction.transactionID}}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="text-uppercase">
+                                        {{'Customer Name' | translate}}: {{transaction.merchant?.merchantName}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div>-->
+                            <!--<label class="right-label">{{'Export in' | translate}}</label>-->
+                            <!--<div class="btns-group-right">-->
+                                <!--<button class="btn-print mt-2 mr-sm-2">-->
+                                    <!--<img src="./assets/images/transactions-details/pdf-icon.svg" alt="">-->
+                                <!--</button>-->
+                                <!--<button class="btn-print mt-2">-->
+                                    <!--<img src="./assets/images/transactions-details/xls-icon.svg" alt="">-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                    <hr>
+                    <div class="mt-5 mb-2">
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Transaction ID' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.transactionID}}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Payment Gateway' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.paymentGateway}}</p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Transaction Date' | translate}}</label>
+                                    <p class="form-control-plaintext text ltr-in-rtl">{{transaction.transactionDate | date: 'dd/MM/yyyy'}}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Status' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.status}}</p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Currency' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.currency}}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Initial Payment Amount' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.initialPaymentAmount}}</p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Additional Payments Amount' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.additionalPaymentsAmount}}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Total Amount' | translate}}</label>
+                                    <p class="form-control-plaintext text">{{transaction.totalAmount}}</p>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body-title">
+                        <span>
+                            {{'Payment Gateway Transaction Details' | translate}}
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="mt-5 mb-2">
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Transaction Date' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.transactionDate | date: 'dd/MM/yyyy hh:mm:ss'}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Deal Reference' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.dealReference}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Terminal Reference' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.terminalReference}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Merchant Reference' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.merchantReference}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Deal Description' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.dealDescription}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Credit Card Vendor' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.creditCardVendor}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Consumer Email' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.consumerEmail}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Consumer Phone' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails?.consumerPhone}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Card Owner Name' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails.cardOwnerName}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Card Digits' | translate}}</label>
+                                    <p class="form-control-plaintext text card-number">
+                                        {{transaction.paymentGatewayTransactionDetails.cardDigits}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Card Expiration' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails.cardExpiration}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Solek' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails.solic}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Transaction Type' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction.paymentGatewayTransactionDetails.transactionType}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <!--<fieldset class="form-group">-->
+                                <!--<label>Solek</label>-->
+                                <!--<p class="form-control-plaintext text">-->
+                                <!--{{transaction.paymentGatewayTransactionDetails.solic}}-->
+                                <!--</p>-->
+                                <!--</fieldset>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body-title">
+                        <span>
+                            {{'Payment Gateway Additional Details' | translate}}
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="mt-5 mb-2">
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Shva Shovar Number' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction?.paymentGatewayAdditionalDetails?.shvaShovarNumber}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <fieldset class="form-group">
+                                    <label>{{'Shva Shovar Data' | translate}}</label>
+                                    <p class="form-control-plaintext text">
+                                        {{transaction?.paymentGatewayAdditionalDetails?.shvaShovarData}}
+                                    </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

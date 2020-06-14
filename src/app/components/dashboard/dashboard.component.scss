@@ -1,0 +1,52 @@
+@import '../../../styles/site-mixin';
+
+.dashboard {
+  max-width: 940px;
+  margin: 0 auto;
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    color: $text-color-1;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  .dashboard-transactions-section {
+    .btn-icon-refresh {
+      position: absolute;
+      right: 23px;
+      top: 8px;
+      z-index: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .col {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+}
+
+// landscape
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+
+}
+
+// iPad Portrait
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+// mobile screens
+@media screen and (max-width: 767px) {
+  .dashboard {
+    .card-header {
+      //padding-bottom: 20px;
+      //font-size: 18px;
+    }
+  }
+}

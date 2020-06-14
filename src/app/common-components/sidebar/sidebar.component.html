@@ -1,0 +1,53 @@
+<nav class="sidebar"
+     [ngClass]="{sidebarPushRight: isActive, 'hided': !isMenuWideOpened, 'rtl-mode': isRTLToggle}">
+    <div class="list-group" *ngIf="!isUnauthorized" [ngClass]="{'standard-mode': isStandardMode}">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'My Dashboard' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'My Dashboard' | translate }}"><i class="fa fa-bar-chart"></i></span>
+        </a>
+        <a routerLink="/profile-details" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Profile Details' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Profile Details' | translate }}"><i class="fa fa-user"></i></span>
+        </a>
+        <a routerLink="/transaction-reports" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Transactions Report' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Transactions Report' | translate }}"><i class="fa fa-list-alt"></i></span>
+        </a>
+        <a routerLink="/billing-reports" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Billing Cycle report' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Billing Cycle report' | translate }}"><i class="fa fa-refresh"></i></span>
+        </a>
+        <a routerLink="/transactions" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Transactions' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Transactions' | translate }}"><i class="fa fa-exchange"></i></span>
+        </a>
+    </div>
+    <div class="list-group-footer" [ngClass]="{'standard-mode': isStandardMode}">
+        <a routerLink="/privacy-policy"
+           [routerLinkActive]="['router-link-active']" class="list-group-item-footer">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Privacy Policy' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Privacy Policy' | translate }}"><i class="fa fa-user-secret"></i></span>
+        </a>
+        <a routerLink="/terms-of-use"
+           [routerLinkActive]="['router-link-active']" class="list-group-item-footer">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Terms of Use' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Terms of Use' | translate }}"><i class="fa fa-file-text-o"></i></span>
+        </a>
+        <a (click)="logout()" class="list-group-item-footer">
+            <span *ngIf="isMenuWideOpened">&nbsp;{{ 'Logout' | translate }}</span>
+            <span *ngIf="!isMenuWideOpened" title="{{ 'Logout' | translate }}"><i class="fa fa-sign-out"></i></span>
+        </a>
+    </div>
+    <div class="toggle-navigation-close">
+        <button class="btn hide-menu-btn" (click)="toggleNavWidth()" *ngIf="isMenuWideOpened">
+            <i class="fa fa-angle-left" *ngIf="!isRTLToggle"></i>
+            <i class="fa fa-angle-right" *ngIf="isRTLToggle"></i>
+        </button>
+    </div>
+    <div class="toggle-navigation-open">
+        <button class="btn show-menu-btn" (click)="toggleNavWidth()" *ngIf="!isMenuWideOpened">
+            <i class="fa fa-angle-right" *ngIf="!isRTLToggle"></i>
+            <i class="fa fa-angle-left" *ngIf="isRTLToggle"></i>
+        </button>
+    </div>
+</nav>

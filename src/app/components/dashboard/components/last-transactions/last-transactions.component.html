@@ -1,0 +1,55 @@
+<div class="card mb-3">
+    <div class="card-header" routerLink="/transactions" style="cursor: pointer">
+        {{'Latest Transactions' | translate}}
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="text-left" title="{{'Date' | translate}}">
+                            <span>{{'Date' | translate}}</span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="text-left" title="{{'Transaction Description' | translate}}">
+                            <span>{{'Transaction Description' | translate}}</span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="text-left" title="{{'Customer Name' | translate}}">
+                            <span>{{'Customer Name' | translate}}</span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="text-left" title="{{'Status' | translate}}">
+                            <span>{{'Status' | translate}}</span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="text-left" title="{{'Currency' | translate}}">
+                            <span>{{'Currency' | translate}}</span>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="text-left" title="{{'Total Amount' | translate}}">
+                            <span>{{'Total Amount' | translate}}</span>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr (click)="transitionToTransaction(transaction)" *ngFor="let transaction of dataTable; index as i;">
+                    <td class="text-left">{{transaction.transactionDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                    <td class="text-left">{{transaction.transactionDescription}}</td>
+                    <td class="text-left">{{transaction.customerName}}</td>
+                    <td class="text-left">{{transaction.status}}</td>
+                    <td class="text-left">{{transaction.currency}}</td>
+                    <td class="text-left">{{transaction.totalAmount | number: '1.2-2'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
